@@ -32,4 +32,9 @@ public class DevController {
         return this.devService.queryById(id);
     }
 
+    @PostMapping("addOne")
+    public Dev addOne(@RequestBody Dev dev){
+        return this.devService.insert(dev);
+    }
+
 }
