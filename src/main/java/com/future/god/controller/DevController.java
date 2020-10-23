@@ -37,4 +37,14 @@ public class DevController {
         return this.devService.insert(dev);
     }
 
+    @PutMapping("updateOne")
+    public Dev updateOne(@RequestBody Dev dev){
+        return this.devService.update(dev);
+    }
+
+    @DeleteMapping("delOne")
+    public boolean delOne(Long id){
+        return this.devService.deleteById(id);
+    }
+
 }
