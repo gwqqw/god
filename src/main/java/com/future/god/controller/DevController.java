@@ -1,7 +1,9 @@
 package com.future.god.controller;
 
+import com.future.god.Business.ConfigTest;
 import com.future.god.entity.Dev;
 import com.future.god.service.DevService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,6 +22,9 @@ public class DevController {
      */
     @Resource
     private DevService devService;
+
+    @Autowired
+    private ConfigTest configTest;
 
     /**
      * 通过主键查询单条数据
@@ -45,6 +50,11 @@ public class DevController {
     @DeleteMapping("delOne")
     public boolean delOne(Long id){
         return this.devService.deleteById(id);
+    }
+
+    @GetMapping("testConfig")
+    public void testConfig() {
+        configTest.printName();
     }
 
 }
